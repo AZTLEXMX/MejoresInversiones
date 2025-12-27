@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTERNATIVAS DE INVERSIÓN</title>
+    <link rel="stylesheet" href="CSS/normalize.css">
+
+    <!-- API PARA USO DE FUENTES EXTERNAS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="CSS/mainstyle.css" as="style">
+    <link rel="stylesheet" href="CSS/mainstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Alternativas de inversión</h1>
+        <h2>Cálculos para las mejores opciones financieras</h2>
+    </header>
+
+    <div>
+        <nav>
+            <a href="index.html">INICIO</a>
+        </nav>
+    </div>
+
+    <main class="contenedor">
+        <h2>DATOS DE LA EMPRESA</h2>
+
+        <div class="acciones">
+            <button id="btnLimpiarArticulo" class="boton" type="button">Limpiar</button>
+        </div>
+
+        <form class="formulario" id="formArticulo">
+            <fieldset>
+                <legend>Llena todos los campos que se presentan</legend>
+
+                <div class="contenedor-campos">
+                    <!-- CAMPOS -->
+                    <div class="campo">
+                        <label for="empresaNombre">Nombre de la empresa</label>
+                        <input id="empresaNombre" name="empresaNombre" type="text" placeholder="Ej. Puertas S.A." required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="articuloNombre">Artículo</label>
+                        <input id="articuloNombre" name="articuloNombre" type="text" placeholder="Ej. Máquina X" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="inversion">Inversión (activo actual)</label>
+                        <input id="inversion" name="inversion" type="number" step="0.01" min="0" placeholder="Ej. 120000" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="gastos">Gastos (activo actual)</label>
+                        <input id="gastos" name="gastos" type="number" step="0.01" min="0" placeholder="Ej. 5000" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="impuestosPct">Pago de impuestos (%)</label>
+                        <input id="impuestosPct" name="impuestosPct" type="number" step="0.0001" min="0" placeholder="Ej. 30 (o 0.30)" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="waccPct">Costo capital promedio ponderado (%)</label>
+                        <input id="waccPct" name="waccPct" type="number" step="0.0001" min="0" placeholder="Ej. 20 (o 0.20)" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="vidaUtil">Vida útil del artículo (años)</label>
+                        <input id="vidaUtil" name="vidaUtil" type="number" step="1" min="1" placeholder="Ej. 5" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="aniosUso">Años de uso del artículo</label>
+                        <input id="aniosUso" name="aniosUso" type="number" step="1" min="0" placeholder="Ej. 2" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="valorResidual">Valor residual (activo actual)</label>
+                        <input id="valorResidual" name="valorResidual" type="number" step="0.01" min="0" placeholder="Ej. 20000" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fechaCalculo">Fecha del cálculo</label>
+                        <input id="fechaCalculo" name="fechaCalculo" type="date" required>
+                    </div>
+                    <!-- FIN CAMPOS -->
+
+                    <div class="campo" style="grid-column: 1 / -1;">
+                        <input class="boton" type="submit" value="Iniciar Calculadora">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <h2>ESCOGER ARTÍCULO</h2>
+        <section>
+            <h3>Artículos</h3>
+
+            <!-- Lista dinámica -->
+            <div id="articulosList">
+                <!-- Botones generados por JS -->
+            </div>
+
+            <!-- Retirar no elimina: marca el artículo como inactivo. -->
+            <button id="btnRetirarArticulo" class="boton" type="button">Retirar</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Pie de página</p>
+    </footer>
+
+    <!-- JS -->
+    <script type="module" src="JS/index.js"></script>
+</body>
+</html>

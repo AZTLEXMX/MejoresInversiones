@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+
+    <link rel="stylesheet" href="CSS/normalize.css">
+
+    <!-- API PARA USO DE FUENTES EXTERNAS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="CSS/mainstyle.css" as="style">
+    <link rel="stylesheet" href="CSS/mainstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Alternativas de inversión</h1>
+        <h2>Cálculos para las mejores opciones financieras</h2>
+    </header>
+
+    <div>
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="proveedores.html">Proveedores</a>
+            <a href="resultados.html">Resultados</a>
+        </nav>
+    </div>
+
+    <main class="contenedor">
+        <section>
+            <!-- ===================== DATOS RESUMEN ===================== -->
+            <div class="resumen-datos" id="resumenDatos">
+                <div class="card">
+                    <h3>Empresa</h3>
+                    <p id="resEmpresa">—</p>
+                </div>
+
+                <div class="card">
+                    <h3>Artículo</h3>
+                    <p id="resArticulo">—</p>
+                </div>
+
+                <div class="card">
+                    <h3>Fecha</h3>
+                    <p id="resFecha">—</p>
+                </div>
+
+                <div class="card">
+                    <h3>Proveedor seleccionado</h3>
+                    <p id="resGanador">—</p>
+                </div>
+            </div>
+
+            <!-- ===================== TABLA RESULTADOS ===================== -->
+            <div id="resTabla">
+                <h2>Detalles</h2>
+                <p>Ejecuta el cálculo desde la pantalla de Proveedores para ver resultados aquí.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Pie de página</p>
+    </footer>
+
+    <!-- JS -->
+    <script type="module" src="JS/resultados.js"></script>
+</body>
+</html>

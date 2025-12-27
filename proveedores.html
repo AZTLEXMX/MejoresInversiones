@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores</title>
+
+    <link rel="stylesheet" href="CSS/normalize.css">
+
+    <!-- API PARA USO DE FUENTES EXTERNAS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="CSS/mainstyle.css" as="style">
+    <link rel="stylesheet" href="CSS/mainstyle.css">
+</head>
+<body>
+    <header>
+        <h1>Alternativas de inversión</h1>
+        <h2>Cálculos para las mejores opciones financieras</h2>
+    </header>
+
+    <div>
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="proveedores.html">Proveedores</a>
+        </nav>
+    </div>
+
+    <main class="contenedor">
+        <!-- ===================== CONTEXTO ===================== -->
+        <section>
+            <h2>DATOS DE LA EMPRESA</h2>
+
+            <div id="ctxArticulo" class="ctx-box">
+                <p><strong>Empresa:</strong> <span id="ctxEmpresa">—</span></p>
+                <p><strong>Artículo:</strong> <span id="ctxArticuloNombre">—</span></p>
+                <p><strong>Fecha cálculo:</strong> <span id="ctxFechaCalculo">—</span></p>
+
+                <!-- datos del artículo necesarios para cálculos -->
+                <p><strong>Impuestos:</strong> <span id="ctxImpuestos">—</span></p>
+                <p><strong>WACC:</strong> <span id="ctxWacc">—</span></p>
+                <p><strong>Vida útil (artículo):</strong> <span id="ctxVidaUtil">—</span></p>
+                <p><strong>Inversión (artículo):</strong> <span id="ctxInvArticulo">—</span></p>
+                <p><strong>Valor residual (artículo):</strong> <span id="ctxVrArticulo">—</span></p>
+            </div>
+        </section>
+
+        <!-- ===================== DATOS DEL PROVEEDOR ===================== -->
+        <section>
+            <h2>DATOS DEL PROVEEDOR</h2>
+
+            <div class="acciones">
+                <button id="btnLimpiarProveedor" class="boton" type="button">Limpiar</button>
+            </div>
+
+            <!-- -------- Datos básicos -------- -->
+            <form id="formProveedor" class="formulario">
+                <fieldset>
+                    <legend>Datos básicos</legend>
+
+                    <div class="contenedor-campos">
+                        <div class="campo">
+                            <label for="proveedorNombre">Nombre del proveedor</label>
+                            <input id="proveedorNombre" name="proveedorNombre" type="text" placeholder="Ej. Proveedor A" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="productoNombre">Nombre del producto</label>
+                            <input id="productoNombre" name="productoNombre" type="text" placeholder="Ej. Máquina X2" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="invProveedor">Inversión (proveedor)</label>
+                            <input id="invProveedor" name="invProveedor" type="number" step="0.01" min="0" placeholder="Ej. 150000" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="gastosProveedor">Gastos (proveedor)</label>
+                            <input id="gastosProveedor" name="gastosProveedor" type="number" step="0.01" min="0" placeholder="Ej. 6000" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="vidaUtilProveedor">Vida útil del artículo (años)</label>
+                            <input id="vidaUtilProveedor" name="vidaUtilProveedor" type="number" step="1" min="1" placeholder="Ej. 5" required>
+                            <small>Si lo dejas vacío, se tomará la vida útil del artículo base.</small>
+                        </div>
+
+                        <div class="campo">
+                            <label for="vrProveedor">Valor residual (proveedor)</label>
+                            <input id="vrProveedor" name="vrProveedor" type="number" step="0.01" min="0" placeholder="Ej. 20000" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="pagoEquipo">Pago por el artículo (pago x equipo)</label>
+                            <input id="pagoEquipo" name="pagoEquipo" type="number" step="0.01" min="0" placeholder="Ej. 150000" required>
+                        </div>
+
+                        <div class="campo" style="grid-column: 1 / -1;">
+                            <button id="btnSiguienteFlujos" class="boton" type="button">Siguiente</button>
+                            <small>Genera la tabla de flujos con base en la vida útil.</small>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <!-- -------- Flujos de efectivo -------- -->
+             <!-- Esta seccion se activará solamente cuando se de click al boton siguiente -->
+            <section id="panelFlujos" style="margin-top: 2rem;">
+                <fieldset>
+                    <legend>Flujos de efectivo</legend>
+
+                    <div id="tablaFlujosWrapper">
+                        <!-- JS genera la tabla aquí -->
+                    </div>
+                </fieldset>
+                
+                <div class="acciones" style="margin-top: 1.5rem;">
+                    <button id="btnGuardarProveedor" class="boton" type="button">Guardar</button>
+                    <button id="btnDetalleFlujos" class="boton" type="button">Detalle de flujos</button>
+                    <button id="btnCalcular" class="boton" type="button">Calcular</button>
+                </div>
+            </section>
+        </section>
+
+        <!-- ===================== ESCOGER PROVEEDOR ===================== -->
+        <section>
+            <h2>ESCOGER PROVEEDOR</h2>
+            <h3>Proveedores</h3>
+
+            <div id="proveedoresList">
+                <!-- JS genera la lista de proveedores -->
+            </div>
+
+            <!-- Retirar no elimina: marca el artículo como inactivo. -->
+            <button id="btnRetirarProveedor" class="boton" type="button">Retirar</button>
+        </section>
+
+        <!-- ===================== FLUJO DE EFECTIVO (TABLA DETALLADA) ===================== -->
+         <!-- Esta seccion se activará solamente cuando se de click al boton siguiente -->
+        <section id="panelDetalle" style="margin-top: 2rem;">
+            <h2>FLUJO DE EFECTIVO</h2>
+            <h3>Cálculos de flujo de efectivo</h3>
+
+            <div id="detalleFlujosWrapper">
+                <!-- JS construye una tabla con: ventas, costos, utilidades, impuestos, depreciación, flujo -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Pie de página</p>
+    </footer>
+
+    <!-- JS -->
+    <script type="module" src="JS/proveedores.js"></script>
+</body>
+</html>
